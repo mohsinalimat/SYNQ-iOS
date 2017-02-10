@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SynqObjC_Example' do
+  pod 'SynqObjC', :path => '../'
+
+  target 'SynqObjC_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
