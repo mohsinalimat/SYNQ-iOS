@@ -1,0 +1,16 @@
+PODS:
+  - SynqObjC (0.1.0)
+
+DEPENDENCIES:
+  - SynqObjC (from `../`)
+
+EXTERNAL SOURCES:
+  SynqObjC:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SynqObjC: a6a0d9b1bf26dc53896d801fea3a7e0ba25b6ca5
+
+PODFILE CHECKSUM: 50fafeb17da7f9784fccf4f6626d826e7367c304
+
+COCOAPODS: 1.2.0.beta.1

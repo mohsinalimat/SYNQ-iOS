@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SynqObjC'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SynqObjC.'
+  s.summary          = 'SynqObjC is an Objective-C SDK that lets you easily add SYNQ video functionality to your mobile app'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This SDK contains what you need to make your app interact with the SYNQ video API. The SDK contains functionality for accessing the videos on the device, and for uploading videos into the SYNQ infrastructure. The SDK also lets you add live video streaming functionality to your app, containing a pre-configured view controller with UI elements for controlling a live video stream.
+Please note: this pod is an add-on to the SYNQ video API and is of no use unless you already have created a service for accessing the API, either directly or by using one of our SDKs. (http://docs.synq.fm)
                        DESC
 
   s.homepage         = 'https://github.com/kjartanvest/SynqObjC'
@@ -28,7 +29,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/kjartanvest/SynqObjC.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'SynqObjC/Classes/**/*'
   
@@ -36,7 +37,11 @@ TODO: Add long description of the pod here.
   #   'SynqObjC' => ['SynqObjC/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'SynqObjC/Classes/*.h'
+
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+
+  s.dependency 'AFNetworking', '~> 3.0'
+  s.dependency 'SynqHttpLib', '~> 0.1'
+
 end
