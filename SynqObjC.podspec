@@ -22,12 +22,13 @@ This SDK contains what you need to make your app interact with the SYNQ video AP
 Please note: this pod is an add-on to the SYNQ video API and is of no use unless you already have created a service for accessing the API, either directly or by using one of our SDKs. (http://docs.synq.fm)
                        DESC
 
-  s.homepage         = 'https://github.com/kjartanvest/SynqObjC'
+  s.homepage         = 'https://github.com/SYNQfm/SYNQ-iOS'
+  s.social_media_url = 'http://twitter.com/synqfm'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'kjartanvest' => 'kjartanvestvik@gmail.com' }
-  s.source           = { :git => 'https://github.com/kjartanvest/SynqObjC.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Kjartan Vestvik' => 'kjartan@synq.fm' }
+  s.source           = { :git => 'https://github.com/SYNQfm/SYNQ-iOS.git', :tag => s.version.to_s }
+
 
   s.ios.deployment_target = '9.0'
 
