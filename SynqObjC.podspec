@@ -25,12 +25,12 @@ Please note: this pod is an add-on to the SYNQ video API and is of no use unless
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'SynqObjC/Classes/**/*'
   s.vendored_frameworks = 'SynqObjC/SynqStreamer.framework'
   s.resource_bundles = {
     'SynqObjC' => ['SynqObjC/Assets/SynqStreamer.bundle']
   }
 
+  s.source_files = 'SynqObjC/Classes/**/*'
   s.public_header_files = 'SynqObjC/Classes/*.h'
 
   s.dependency 'AFNetworking', '~> 3.0'
