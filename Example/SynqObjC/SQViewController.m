@@ -9,6 +9,7 @@
 #import "SQViewController.h"
 #import "SQCollectionViewCell.h"
 #import "SQVideoHandler.h"
+#import "SQServerController.h"
 #import <SynqObjC/SynqUploader.h>
 
 @interface SQViewController () {
@@ -16,7 +17,7 @@
     CGSize cellSize;
     NSMutableArray *selectedVideos;     // Array of selected videos for uploading
     int numberOfPostedVideos;   // The number of videos that have have been posted to the Synq API
-    //SQNetworkController *network;       // An instance of the network controller
+    SQServerController *server;       // An instance of the server controller
 }
 
 @property (nonatomic, strong) NSMutableArray *videos;
@@ -35,6 +36,8 @@
     // Init caching manager for video thumbnails
     cachingImageManager = [[PHCachingImageManager alloc] init];
     
+    // Init the server controller
+    server = [[SQServerController alloc] init];
     
     // Initialize array and counter
     selectedVideos = [NSMutableArray array];
@@ -70,6 +73,9 @@
             });
         }
     }];
+    
+    // Try logging in user (if unsuccessful, a user will be created and then logged in)
+    [server loginUser];
 }
 
 - (void)didReceiveMemoryWarning
