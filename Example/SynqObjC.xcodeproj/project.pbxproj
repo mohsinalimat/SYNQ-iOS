@@ -27,6 +27,7 @@
 		8C24D92E73CDF5597174F515 /* libPods-SynqObjC_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9239A361C5781D456B70A225 /* libPods-SynqObjC_Example.a */; };
 		D1AB55DD1E52FD9800BA02AE /* SQVideoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AB55DC1E52FD9800BA02AE /* SQVideoHandler.m */; };
 		D1AB55E01E530D1D00BA02AE /* SQServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AB55DF1E530D1D00BA02AE /* SQServerController.m */; };
+		D1AB55E21E53248700BA02AE /* SQHttpClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AB55E11E53248700BA02AE /* SQHttpClientTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		D1AB55DC1E52FD9800BA02AE /* SQVideoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQVideoHandler.m; sourceTree = "<group>"; };
 		D1AB55DE1E530D1D00BA02AE /* SQServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQServerController.h; sourceTree = "<group>"; };
 		D1AB55DF1E530D1D00BA02AE /* SQServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQServerController.m; sourceTree = "<group>"; };
+		D1AB55E11E53248700BA02AE /* SQHttpClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQHttpClientTests.m; sourceTree = "<group>"; };
 		D35CDA02342811F670070E49 /* Pods-SynqObjC_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqObjC_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SynqObjC_Tests/Pods-SynqObjC_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E894CDD0B28FB4A976D3DC2E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		EC2BCB67367DFDB88DBC49D0 /* Pods-SynqObjC_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SynqObjC_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SynqObjC_Example/Pods-SynqObjC_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D1AB55E11E53248700BA02AE /* SQHttpClientTests.m */,
 				6003F5BB195388D20070C39A /* Tests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -425,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1AB55E21E53248700BA02AE /* SQHttpClientTests.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
