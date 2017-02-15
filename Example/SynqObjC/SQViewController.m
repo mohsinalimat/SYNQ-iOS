@@ -11,6 +11,7 @@
 #import "SQVideoHandler.h"
 #import "SQServerController.h"
 #import <SynqObjC/SynqUploader.h>
+#import <SynqStreamer/SynqStreamer.h>
 
 @interface SQViewController () {
     PHCachingImageManager *cachingImageManager;
@@ -89,7 +90,13 @@
 }
 
 - (IBAction)streamButtonPushed:(id)sender {
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SynqStreamer" withExtension:@"bundle"]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Streamer" bundle:bundle];
+    MainViewController *streamView = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
     
+    // Navigation controller
+    AppNavigationController *navController = [[AppNavigationController alloc] initWithRootViewController:streamView];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 
