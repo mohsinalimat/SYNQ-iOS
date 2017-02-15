@@ -90,7 +90,8 @@
 }
 
 - (IBAction)streamButtonPushed:(id)sender {
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SynqStreamer" withExtension:@"bundle"]];
+    
+    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SynqStreamerResources" withExtension:@"bundle"]];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Streamer" bundle:bundle];
     MainViewController *streamView = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
     
