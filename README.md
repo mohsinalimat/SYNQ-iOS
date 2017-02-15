@@ -1,6 +1,6 @@
 # SynqObjC
 
-[![Build Status](https://www.bitrise.io/app/defc9f57a429cadb.svg?token=2J7owYPfYjtBvRmaFOXbCw&branch=master)]((https://www.bitrise.io/app/defc9f57a429cadb)
+[![Build Status](https://www.bitrise.io/app/defc9f57a429cadb.svg?token=2J7owYPfYjtBvRmaFOXbCw&branch=master)](https://www.bitrise.io/app/defc9f57a429cadb)
 [![Version](https://img.shields.io/cocoapods/v/SynqObjC.svg?style=flat)](http://cocoapods.org/pods/SynqObjC)
 [![License](https://img.shields.io/cocoapods/l/SynqObjC.svg?style=flat)](http://cocoapods.org/pods/SynqObjC)
 [![Platform](https://img.shields.io/cocoapods/p/SynqObjC.svg?style=flat)](http://cocoapods.org/pods/SynqObjC)
