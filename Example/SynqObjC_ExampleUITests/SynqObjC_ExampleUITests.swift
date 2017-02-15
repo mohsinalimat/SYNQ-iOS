@@ -44,7 +44,7 @@ class SynqObjC_ExampleUITests: XCTestCase {
         XCTAssert(app.buttons["Upload"].exists)
         XCTAssert(app.buttons["Open StreamView"].exists)
     }
-    
+    /*
     func testStreamer() {
         
         let app = XCUIApplication()
@@ -66,5 +66,5 @@ class SynqObjC_ExampleUITests: XCTestCase {
         XCTAssert(app.buttons["icSettings"].exists)
         XCTAssert(app.buttons["icCloseWhite"].exists)
     }
-    
+    */
 }
