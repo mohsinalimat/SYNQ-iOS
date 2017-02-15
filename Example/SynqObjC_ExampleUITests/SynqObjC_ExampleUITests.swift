@@ -45,4 +45,26 @@ class SynqObjC_ExampleUITests: XCTestCase {
         XCTAssert(app.buttons["Open StreamView"].exists)
     }
     
+    func testStreamer() {
+        
+        let app = XCUIApplication()
+        app.buttons["Open StreamView"].tap()
+        
+        addUIInterruptionMonitor(withDescription: "Camera Dialog") { (alert) -> Bool in
+            alert.buttons["OK"].tap()
+            return true
+        }
+        
+        addUIInterruptionMonitor(withDescription: "Microphone Dialog") { (alert) -> Bool in
+            alert.buttons["OK"].tap()
+            return true
+        }
+        
+        app.tap()
+        
+        XCTAssert(app.buttons["icRecStart"].exists)
+        XCTAssert(app.buttons["icSettings"].exists)
+        XCTAssert(app.buttons["icCloseWhite"].exists)
+    }
+    
 }
