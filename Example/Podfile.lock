@@ -25,7 +25,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   SynqObjC:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -34,4 +34,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 995d94ef6c3bafd3e61cbb95aafbc3bcd3aae1d6
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.0.beta.1
