@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -100,14 +100,21 @@
                                     <outlet property="delegate" destination="whP-gf-Uak" id="li3-fz-yLb"/>
                                 </connections>
                             </collectionView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZLP-Jd-NAn">
+                                <rect key="frame" x="0.0" y="67" width="375" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="270-jI-8CO" firstAttribute="top" secondItem="ZLP-Jd-NAn" secondAttribute="bottom" id="7BM-JU-x8M"/>
                             <constraint firstAttribute="trailing" secondItem="270-jI-8CO" secondAttribute="trailing" id="9de-21-yuy"/>
                             <constraint firstItem="270-jI-8CO" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="9nc-V6-4hw"/>
                             <constraint firstItem="r0Z-4d-07i" firstAttribute="trailing" secondItem="TpU-gO-2f1" secondAttribute="trailingMargin" id="BE1-p7-Qpb"/>
+                            <constraint firstAttribute="trailing" secondItem="ZLP-Jd-NAn" secondAttribute="trailing" id="EYQ-Ik-XOq"/>
                             <constraint firstItem="9xt-0X-uet" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" id="I22-rb-Y0K"/>
                             <constraint firstItem="cQo-fp-DMx" firstAttribute="leading" secondItem="9xt-0X-uet" secondAttribute="trailing" constant="8" id="N4w-u4-Mmb"/>
+                            <constraint firstItem="ZLP-Jd-NAn" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="NG9-9W-sWk"/>
+                            <constraint firstItem="ZLP-Jd-NAn" firstAttribute="top" secondItem="cQo-fp-DMx" secondAttribute="bottom" constant="6" id="Onx-5s-Oce"/>
                             <constraint firstItem="cQo-fp-DMx" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="2" id="RcL-0B-iP5"/>
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="270-jI-8CO" secondAttribute="bottom" id="atL-WE-XjC"/>
                             <constraint firstItem="9xt-0X-uet" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" id="iuc-7R-A4q"/>
@@ -118,6 +125,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="270-jI-8CO" id="LRr-pe-lk1"/>
+                        <outlet property="progressView" destination="ZLP-Jd-NAn" id="NnP-Xc-35S"/>
                         <outlet property="streamButton" destination="r0Z-4d-07i" id="Sfl-qe-ZMe"/>
                         <outlet property="uploadButton" destination="9xt-0X-uet" id="W5Z-U2-rrf"/>
                     </connections>

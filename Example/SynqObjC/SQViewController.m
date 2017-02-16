@@ -13,7 +13,7 @@
 #import <SynqObjC/SynqUploader.h>
 #import <SynqStreamer/SynqStreamer.h>
 
-@interface SQViewController () {
+@interface SQViewController () <SQVideoUploadDelegate> {
     PHCachingImageManager *cachingImageManager;
     CGSize cellSize;
     NSMutableArray *selectedVideos;     // Array of selected videos for uploading
@@ -39,6 +39,9 @@
     
     // Init the server controller
     server = [[SQServerController alloc] init];
+    
+    // Set delegate to handle upload results
+    [[SynqUploader sharedInstance] setDelegate:self];
     
     // Initialize array and counter
     selectedVideos = [NSMutableArray array];
@@ -85,9 +88,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Button actions
+
+
 - (IBAction)uploadButtonPushed:(id)sender {
+    NSLog(@"Upload %lu videos", (unsigned long)selectedVideos.count);
     
+    if (selectedVideos.count == 0) {
+        return;
+    }
+    
+    // Post all selected videos
+    [self postAllVideos];
 }
+
 
 - (IBAction)streamButtonPushed:(id)sender {
     
@@ -98,6 +113,129 @@
     // Navigation controller
     AppNavigationController *navController = [[AppNavigationController alloc] initWithRootViewController:streamView];
     [self presentViewController:navController animated:YES completion:nil];
+}
+
+
+#pragma mark - Private helper methods
+
+
+- (void) postAllVideos
+{
+    // Do nothing if no videos are selected
+    if (selectedVideos.count == 0) {
+        return;
+    }
+    
+    // Post all selected videos
+    for (SQVideoUpload *video in selectedVideos) {
+        [self createVideoObjectForVideo:video];
+    }
+}
+
+
+- (void) deselectAllCells
+{
+    //[self updateMyClipsWithConnectionsForSelectedMoment];
+    [self removeAllSelections];
+    
+    // Empty selected items array and update upload button state
+    [selectedVideos removeAllObjects];
+    
+    // Reload collectionView
+    [self.collectionView reloadData];
+}
+
+
+- (void) removeAllSelections
+{
+    for (NSIndexPath *indexPath in [self.collectionView indexPathsForSelectedItems]) {
+        [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    }
+}
+
+
+
+#pragma mark - Video methods calling SynqAPI
+
+
+- (void) createVideoObjectForVideo:(SQVideoUpload *)sqVideo
+{
+    [server createVideoWithSuccessBlock:^(NSDictionary *jsonResponse)
+    {
+        //NSLog(@"SynqAPI: get upload params success, params: %@", jsonResponse);
+        
+        // Set uploadParameters in SQVideoUpload object
+        [sqVideo setUploadParameters:jsonResponse];
+        
+        // Increment counter
+        numberOfPostedVideos++;
+        
+        // If all videos are done posting, upload the video array
+        if (numberOfPostedVideos == selectedVideos.count) {
+            NSLog(@"All done, start uploading...");
+            [self uploadVideoArray:selectedVideos];
+        }
+    }
+    httpFailureBlock:^(NSURLSessionDataTask *task, NSError *error)
+    {
+        NSLog(@"MV: video create error: %@", error);
+    }];
+}
+
+
+
+- (void) uploadVideoArray:(NSMutableArray *)videoArray
+{
+    // Create an array of videos to upload (in this case only one video)
+    //NSArray *videosArray = [NSArray arrayWithObjects:sqVideo, nil];
+    
+    // Use SynqUploader to initiate exporting and uploading the videos in the array
+    [[SynqUploader sharedInstance] uploadVideoArray:videoArray
+                                exportProgressBlock:^(double exportProgress)
+    {
+        NSLog(@"Export progress: %f", exportProgress);
+        // Report progress to UI
+        [self.progressView setProgress:exportProgress];
+    }
+    uploadProgressBlock:^(double uploadProgress)
+    {
+        NSLog(@"Upload progress: %f", uploadProgress);
+                                    
+        // We need progress between 0 and 1, so must divide percent by 100
+        double progressBelowOne = uploadProgress / 100.0;
+        // Report progress to UI
+        [self.progressView setProgress:progressBelowOne];
+    }];
+}
+
+
+#pragma mark - SQVideoUploadDelegate methods
+
+
+- (void) allVideosUploadedSuccessfully
+{
+    // Handle video upload complete
+    NSLog(@"All videos uploaded successfully");
+    
+    // Reset selections and counter
+    [self deselectAllCells];
+    numberOfPostedVideos = 0;
+    
+    // Reset progress view
+    [self.progressView setProgress:0.0];
+    
+}
+
+- (void) videoUploadCompleteForVideo:(SQVideoUpload *)video
+{
+    // Handle upload complete for the video (for instance, update database of uploaded videos)
+    NSLog(@"Upload complete for video with id %@", video.videoId);
+}
+
+- (void) videoUploadFailedForVideo:(SQVideoUpload *)video
+{
+    // Handle error
+    NSLog(@"Upload failed for video with id %@", video.videoId);
 }
 
 

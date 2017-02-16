@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 @property (weak, nonatomic) IBOutlet UIButton *streamButton;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 
 - (IBAction)uploadButtonPushed:(id)sender;
 - (IBAction)streamButtonPushed:(id)sender;
