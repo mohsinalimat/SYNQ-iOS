@@ -93,7 +93,7 @@
     
     NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"SynqStreamerResources" withExtension:@"bundle"]];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Streamer" bundle:bundle];
-    MainViewController *streamView = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    StreamerViewController *streamView = [storyboard instantiateViewControllerWithIdentifier:@"StreamerViewController"];
     
     // Navigation controller
     AppNavigationController *navController = [[AppNavigationController alloc] initWithRootViewController:streamView];

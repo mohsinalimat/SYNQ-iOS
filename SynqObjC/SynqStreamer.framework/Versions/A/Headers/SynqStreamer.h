@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MainViewController.h"
+#import "StreamerViewController.h"
 #import "AppNavigationController.h"
 
 
