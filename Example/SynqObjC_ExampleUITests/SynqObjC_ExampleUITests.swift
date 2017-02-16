@@ -39,15 +39,14 @@ class SynqObjC_ExampleUITests: XCTestCase {
     }
     
     func testMainGuiAndPhotosPermission() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
         
         addUIInterruptionMonitor(withDescription: "Photos Dialog") { (alert) -> Bool in
             alert.buttons["OK"].tap()
             return true
         }
         
-        let app = XCUIApplication()
         app.tap() // need to interact with the app for the handler to fire
         
         // Check that the buttons exist
@@ -58,6 +57,8 @@ class SynqObjC_ExampleUITests: XCTestCase {
     func testStreamer() {
         
         let app = XCUIApplication()
+        
+        // Open the Streamer view
         app.buttons["Open StreamView"].tap()
         
         #if (!arch(i386) && !arch(x86_64)) && os(iOS)
@@ -74,12 +75,23 @@ class SynqObjC_ExampleUITests: XCTestCase {
             app.tap()
             
             XCTAssert(app.buttons["icSwitchCams"].exists)
+            XCTAssert(app.buttons["icSwitchCams"].isHittable)
             XCTAssert(app.buttons["icMicOff"].exists)
+            XCTAssert(app.buttons["icMicOff"].isHittable)
         #endif
         
-        
         XCTAssert(app.buttons["icSettings"].exists)
+        XCTAssert(app.buttons["icSettings"].isHittable)
         XCTAssert(app.buttons["icCloseWhite"].exists)
+        XCTAssert(app.buttons["icCloseWhite"].isHittable)
+        
+        // Change orientation
+        XCUIDevice.shared().orientation = UIDeviceOrientation.portrait
+        XCUIDevice.shared().orientation = UIDeviceOrientation.landscapeLeft
+        XCUIDevice.shared().orientation = UIDeviceOrientation.landscapeRight
+        
+        // Close the Streamer view
+        app.buttons["icCloseWhite"].tap()
     }
     
 }
