@@ -46,8 +46,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Streamer" bundle:bundle];
     
     // MainViewConroller
-    MainViewController *streamView = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-    XCTAssertNotNil(streamView, @"MainViewController is nil");
+    StreamerViewController *streamView = [storyboard instantiateViewControllerWithIdentifier:@"StreamerViewController"];
+    XCTAssertNotNil(streamView, @"StreamerViewController is nil");
     
     // Navigation controller
     AppNavigationController *navController = [[AppNavigationController alloc] initWithRootViewController:streamView];
