@@ -9,7 +9,7 @@ This is the SYNQ mobile SDK for iOS. It lets you easily integrate your mobile ap
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first. The example project features an app that utilizes the features of the SDK.
+To run the example project, clone the repo, and run `pod install` from the Example directory first. The example project features an app that utilizes the features of the SDK, and this shows how parts of the SDK are to be used.
 
 ## Installation
 
@@ -27,10 +27,51 @@ __Please note: The streaming functionality is not fully implemented yet, it will
 
 This part consists of classes for fetching videos from the Photos library, exporting and uploading them to SYNQ. The SDK uses [AFNetworking 3](https://github.com/AFNetworking/AFNetworking) for communicating with the server. It utilizes a background configured NSURLSession to manage video uploads. This makes the upload continue regardless of whether the app is in the foreground or background.
 
+### Import the SynqUploader header
+
+```objective-c
+#import <SynqUploader/SynqUploader.h>
+```
+
+### Create a SQVideoUpload object of each PHAsset to be uploaded
+
+```objective-c
+SQVideoUpload *video = [[SQVideoUpload alloc] initWithPHAsset:asset];
+```
+
+### Set upload parameters for the SQVideoUpload object
+
+To do this, you must do two things: 
+1. Create a video object in the SYNQ API
+2. Fetch upload parameters from the API for the created video object
+In the example project, the SynqHttpLib pod and the example server (SYNQ-Nodejs-example-server) performs these two functions in one step via the function "createVideoAndGetParamsWithSuccess:" 
+
+```objective-c
+[video setUploadParameters:parameters];
+```
+
+### Add each SQVideoUpload object to a NSArray and call the upload function
+
+```objective-c
+[[SynqUploader sharedInstance] uploadVideoArray:videoArray
+                            exportProgressBlock:^(double exportProgress) 
+{
+    // Report progress to UI
+    [self.progressView setProgress:exportProgress];
+}
+uploadProgressBlock:^(double uploadProgress) 
+{
+    // uploadProgress is between 0.0 and 100.0
+    // Report progress to UI
+    [self.progressView setProgress:uploadProgress];
+}];
+```
+
 
 ## SynqStreamer
 
-<img src="https://www.synq.fm/wp-content/uploads/2017/01/gh_screen-s.jpg" align="left" height="610" width="500" >
+<img src="https://www.synq.fm/wp-content/uploads/2017/01/gh_screen-s.jpg" height="610" width="500" >
+
 __This part of the SDK is not fully implemented yet__
 
 
