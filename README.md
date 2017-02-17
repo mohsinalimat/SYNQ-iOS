@@ -33,7 +33,13 @@ This part consists of classes for fetching videos from the Photos library, expor
 #import <SynqUploader/SynqUploader.h>
 ```
 
-### Create a SQVideoUpload object of each PHAsset to be uploaded
+### Set SQVideoUploadDelegate to be able to handle upload results
+
+```objective-c
+[[SynqUploader sharedInstance] setDelegate:self];
+```
+
+### Create a SQVideoUpload object for each PHAsset to be uploaded
 
 ```objective-c
 SQVideoUpload *video = [[SQVideoUpload alloc] initWithPHAsset:asset];
@@ -41,9 +47,10 @@ SQVideoUpload *video = [[SQVideoUpload alloc] initWithPHAsset:asset];
 
 ### Set upload parameters for the SQVideoUpload object
 
-To do this, you must do two things: 
-1. Create a video object in the SYNQ API
-2. Fetch upload parameters from the API for the created video object
+To do this, you must do two things. 
+1: Create a video object in the SYNQ API, and
+2: Fetch upload parameters from the API for the created video object.
+
 In the example project, the SynqHttpLib pod and the example server (SYNQ-Nodejs-example-server) performs these two functions in one step via the function "createVideoAndGetParamsWithSuccess:" 
 
 ```objective-c
@@ -66,6 +73,25 @@ uploadProgressBlock:^(double uploadProgress)
     [self.progressView setProgress:uploadProgress];
 }];
 ```
+
+### SQVideoUploadDelegate
+
+The outcome of each upload is reported through the SQVideoUploadDelegate methods. These are the methods that are available, and how they should be used:
+
+```objective-c
+- (void) videoUploadCompleteForVideo:(SQVideoUpload *)video;
+```
+A video is successfully uploaded.
+
+```objective-c
+- (void) videoUploadFailedForVideo:(SQVideoUpload *)video;
+```
+There was an error uploading a video.
+
+```objective-c
+- (void) allVideosUploadedSuccessfully;
+```
+All videos were successfully uploaded.
 
 
 ## SynqStreamer
