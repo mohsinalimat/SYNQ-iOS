@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [0.2.2] - 2017-02-20
+### Changed
+- Moved CHANGELOG to root folder
+
+
 ## [0.2.1] - 2017-02-20
 ### Added
 - Screenshot of the Streamer view added to the podspec
