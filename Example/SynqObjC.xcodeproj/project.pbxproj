@@ -77,12 +77,12 @@
 		6D95394C1E5462E5004CAF92 /* SynqObjC_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SynqObjC_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D95394E1E5462E5004CAF92 /* SynqObjC_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynqObjC_ExampleUITests.swift; sourceTree = "<group>"; };
 		6D9539501E5462E5004CAF92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DBBA2CA1E5B0F6F0041D5F3 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		6DF3DE501E4E0EDD00EF1416 /* SQCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQCollectionViewCell.h; sourceTree = "<group>"; };
 		6DF3DE511E4E0EDD00EF1416 /* SQCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQCollectionViewCell.m; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9239A361C5781D456B70A225 /* libPods-SynqObjC_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SynqObjC_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D15E25531E56EA6B00108AC3 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		D1AB55DB1E52FD9800BA02AE /* SQVideoHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQVideoHandler.h; sourceTree = "<group>"; };
 		D1AB55DC1E52FD9800BA02AE /* SQVideoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQVideoHandler.m; sourceTree = "<group>"; };
 		D1AB55DE1E530D1D00BA02AE /* SQServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQServerController.h; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 			children = (
 				0F4D95AEC786C88D08E86B48 /* SynqObjC.podspec */,
 				52EA2FB2133E53CE8EEE7362 /* README.md */,
-				D15E25531E56EA6B00108AC3 /* CHANGELOG.md */,
+				6DBBA2CA1E5B0F6F0041D5F3 /* CHANGELOG.md */,
 				E894CDD0B28FB4A976D3DC2E /* LICENSE */,
 			);
 			name = "Podspec Metadata";
