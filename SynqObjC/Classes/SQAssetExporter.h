@@ -4,8 +4,8 @@
 //
 //  Created by Kjartan Vestvik on 15.11.2016.
 //
-//  This class is used to export PHAsset videos to temporary files,
-//  and to delete those temporary files
+//  This class is used to export PHAsset videos to temporary files for upload,
+//  and to delete those temporary files after upload is complete
 //
 
 #import <Foundation/Foundation.h>
@@ -24,7 +24,8 @@
  *  Export a SQVideoUpload object to a file
  *  Set the path of the file in SQVideoUpload.filePath
  *
- *  @param video The SQVideoUpload object containing a PHAsset object to export
+ *  @param video            The SQVideoUpload object containing a PHAsset object to export
+ *  @param iCloudDownload   A bool indicating if the video should be downloaded from iCloud if not present on the device
  */
 - (void) exportVideo:(SQVideoUpload *)video allowICloudDownload:(BOOL)iCloudDownload;
 

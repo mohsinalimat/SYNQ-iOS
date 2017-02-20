@@ -161,7 +161,7 @@
                                                                    repeats:YES];
     });
     
-    
+    // Upload each video in the array
     for (SQVideoUpload *video in self.videosToUpload) {
         
         [self.client uploadVideo:video

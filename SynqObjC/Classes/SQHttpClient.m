@@ -28,11 +28,17 @@
 }
 
 
+/**
+ *  Post a multipart form to Amazon
+ *
+ *  @param video        The video object containing the video to upload and the parameters
+ *  @param successBlock A block called on upload success
+ *  @param errorBlock   A block called on upload error
+ */
 - (void) uploadVideo:(SQVideoUpload *)video
        uploadSuccess:(void (^)(NSURLResponse *))successBlock
          uploadError:(void (^)(NSError *))errorBlock
 {
-    
     // Check that file exists at path
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:video.filePath]) {
@@ -66,7 +72,11 @@
 }
 
 
-// Video posting
+/** Private method handling the actual video posting
+ *  A multipart form request is created first.
+ *  Then, the multipart form is written to a temporary file (this is due to a bug in NSURLSessionTask),
+ *  and then the actual http request is started using a AFHTTPSessionManager configured with a background session
+ */
 - (void) postUploadFormWithAction:(NSString *)action
                     andParameters:(NSDictionary *)paramsDict
                       forFilePath:(NSString *)filePath
@@ -148,6 +158,9 @@
 
 #pragma mark - Helper methods
 
+/** Build the upload parameters dictionary from the parameters returned from the SYNQ API
+ *  Also check that all parameters are present, return nil if any parameter is missing
+ */
 - (NSDictionary *) getUploadFormFromParametersDictionary:(NSDictionary *)paramsDict
 {
     // check paramsDict

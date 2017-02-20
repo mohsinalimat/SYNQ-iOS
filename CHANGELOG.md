@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [0.2.3] - 2017-02-20
+### Changed
+- More extensive documentation in most classes
+
+
 ## [0.2.2] - 2017-02-20
 ### Changed
 - Moved CHANGELOG to root folder

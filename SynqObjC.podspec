@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SynqObjC'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = 'SynqObjC is an Objective-C SDK that lets you easily add SYNQ video functionality to your mobile app'
 
   s.description      = <<-DESC

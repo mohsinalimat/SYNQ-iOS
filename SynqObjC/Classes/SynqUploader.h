@@ -4,7 +4,8 @@
 //
 //  Created by Kjartan Vestvik on 15.11.2016.
 //
-//
+//  This class is used to initiate the actual video file upload to Amazon servers
+//  It also contains the SQVideoUploadDelegate methods for reporting video upload results
 
 #import <Foundation/Foundation.h>
 @import Photos;

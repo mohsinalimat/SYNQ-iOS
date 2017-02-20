@@ -21,7 +21,13 @@
 }
 
 
-
+/**
+ *  Export a SQVideoUpload object to a file
+ *  Set the path of the file in SQVideoUpload.filePath
+ *
+ *  @param video            The SQVideoUpload object containing a PHAsset object to export
+ *  @param iCloudDownload   A bool indicating if the video should be downloaded from iCloud if not present on the device
+ */
 - (void) exportVideo:(SQVideoUpload *)video allowICloudDownload:(BOOL)iCloudDownload
 {
     if (!video || !video.phAsset) {
@@ -31,6 +37,8 @@
     __block BOOL _success;
     
     PHVideoRequestOptions *options = nil;
+    
+    // COnfigure for iCloud download if this flag is set, also set export progress handler
     if (iCloudDownload) {
         options = [[PHVideoRequestOptions alloc] init];
         [options setNetworkAccessAllowed:YES];
@@ -96,6 +104,8 @@
 }
 
 
+// Delete the exported video file for the SQVideoUpload object,
+// pointed to by the filePath parameter
 - (void) deleteExportedFileForVideo:(SQVideoUpload *)video
 {
     if ([[NSFileManager defaultManager] fileExistsAtPath:[video filePath]]) {

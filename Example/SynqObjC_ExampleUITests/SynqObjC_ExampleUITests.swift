@@ -61,6 +61,7 @@ class SynqObjC_ExampleUITests: XCTestCase {
         // Open the Streamer view
         app.buttons["Open StreamView"].tap()
         
+        // Only listen for system alerts (Camera and Microphone permission requests) when not running on simulator
         #if (!arch(i386) && !arch(x86_64)) && os(iOS)
             addUIInterruptionMonitor(withDescription: "Camera Dialog") { (alert) -> Bool in
                 alert.buttons["OK"].tap()
