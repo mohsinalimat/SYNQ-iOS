@@ -103,7 +103,7 @@ __This part of the SDK is not fully implemented yet__
 
 ## Important note
 
-The example project is dependant on access to the SYNQ API to be able to create a video object and to fetch the upload parameters needed when calling the upload function. You will need to get an API key from the SYNQ admin panel, and insert the key into the SynqAPI class. **Caution: this is not the proper way of doing this, and your api key might get exposed to others!** In a real world scenario, this should be handled by your own backend. The backend should then give your app the upload parameters.
+The SDK is dependant on access to the SYNQ API to be able to create a video object and to fetch the upload parameters needed when calling the upload function. The SYNQ API is intended to be accessed from a server, this means that you should have your own server authenticating requests from the mobile client and making http calls to the SYNQ API. You will need to get an API key from the SYNQ admin panel, and use the key when making the calls to the SYNQ API. To get you started, you can use our [NodeJS example server] (https://github.com/SYNQfm/SYNQ-Nodejs-example-server) to see how the requests can be made, and give the SDK a try.
 
 For more info, please read the [projects and api keys](https://docs.synq.fm/#projects-and-api-keys) section in the docs.
 
