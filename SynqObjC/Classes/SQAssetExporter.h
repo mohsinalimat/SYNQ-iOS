@@ -18,7 +18,7 @@
 
 @interface SQAssetExporter : NSObject
 
-@property (weak, nonatomic) id<SQAssetExporterDelegate> delegate;
+@property (weak, nonatomic) id<SQAssetExporterDelegate> delegate;   // Delegate for reporting export result
 
 /**
  *  Export a SQVideoUpload object to a file
@@ -40,12 +40,18 @@
 
 
 /**
- *  This delegate protocol is implemented by SynqLib to get notified when a video
+ *  This delegate protocol is implemented by SynqUploader to get notified when a video
  *  has finished exporting
  */
 @protocol SQAssetExporterDelegate <NSObject>
 
 @required
+
+/**
+ *  A SQVideoUpload finished exporting the video to a file
+ *
+ *  @param video The SQVideoUpload object that finished exporting
+ */
 - (void) assetExporter:(SQAssetExporter *)exporter finishedExportingVideo:(SQVideoUpload *)video;
 
 // TODO: add error methods
