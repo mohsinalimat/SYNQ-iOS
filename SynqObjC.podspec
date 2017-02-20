@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SynqObjC'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'SynqObjC is an Objective-C SDK that lets you easily add SYNQ video functionality to your mobile app'
 
   s.description      = <<-DESC
@@ -21,7 +21,7 @@ Please note: this pod is an add-on to the SYNQ video API and is of no use unless
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kjartan Vestvik' => 'kjartan@synq.fm' }
   s.source           = { :git => 'https://github.com/SYNQfm/SYNQ-iOS.git', :tag => s.version.to_s }
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshot       = 'https://camo.githubusercontent.com/0ac6dafc3463d72b063977e86bbe29881c23fbc0/68747470733a2f2f7777772e73796e712e666d2f77702d636f6e74656e742f75706c6f6164732f323031372f30312f67685f73637265656e2d732e6a7067'
 
   s.ios.deployment_target = '9.0'
 
